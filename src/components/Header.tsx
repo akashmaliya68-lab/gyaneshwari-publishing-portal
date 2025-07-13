@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, BookOpen } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,8 +23,12 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <BookOpen className="h-8 w-8 text-blue-600" />
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/a77f0675-d2fd-48c8-86e1-087d3a8163d4.png" 
+              alt="Gyaneshwari Prakashan Logo" 
+              className="h-12 w-12 object-contain"
+            />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gray-900">Gyaneshwari</span>
               <span className="text-sm text-blue-600 -mt-1">Prakashan</span>
