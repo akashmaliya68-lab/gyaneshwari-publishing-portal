@@ -46,7 +46,7 @@ const Contact = () => {
     {
       icon: <Mail className="h-6 w-6 text-blue-600" />,
       title: "Email",
-      details: "info@gyaneshwariprakashan.com",
+      details: "gyaneshwariprakashan1997@gmail.com",
       subtitle: "We'll respond within 24 hours"
     },
     {
