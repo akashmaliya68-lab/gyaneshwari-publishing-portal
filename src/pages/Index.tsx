@@ -1,45 +1,29 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { BookOpen, Users, Award, Star, ArrowRight, CheckCircle } from "lucide-react";
-
 const Index = () => {
-  const features = [
-    {
-      icon: <BookOpen className="h-12 w-12 text-blue-600" />,
-      title: "Complete Publishing Solution",
-      description: "From manuscript to market, we handle every aspect of your book publication journey."
-    },
-    {
-      icon: <Users className="h-12 w-12 text-blue-600" />,
-      title: "Expert Team",
-      description: "Our experienced professionals ensure your book meets the highest industry standards."
-    },
-    {
-      icon: <Award className="h-12 w-12 text-blue-600" />,
-      title: "Quality Assured",
-      description: "We maintain strict quality control throughout the entire publication process."
-    }
-  ];
-
-  const services = [
-    "ISBN Allotment",
-    "Manuscripting",
-    "Professional Editing",
-    "Book Formatting",
-    "Cover Designing",
-    "Amazon Listing"
-  ];
-
-  return (
-    <div className="min-h-screen bg-white">
+  const features = [{
+    icon: <BookOpen className="h-12 w-12 text-blue-600" />,
+    title: "Complete Publishing Solution",
+    description: "From manuscript to market, we handle every aspect of your book publication journey."
+  }, {
+    icon: <Users className="h-12 w-12 text-blue-600" />,
+    title: "Expert Team",
+    description: "Our experienced professionals ensure your book meets the highest industry standards."
+  }, {
+    icon: <Award className="h-12 w-12 text-blue-600" />,
+    title: "Quality Assured",
+    description: "We maintain strict quality control throughout the entire publication process."
+  }];
+  const services = ["ISBN Allotment", "Manuscripting", "Professional Editing", "Book Formatting", "Cover Designing", "Amazon Listing"];
+  return <div className="min-h-screen bg-white">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20 bg-[#b1b1b8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -75,8 +59,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+            {features.map((feature, index) => <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-4">
                     {feature.icon}
@@ -88,8 +71,7 @@ const Index = () => {
                     {feature.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -106,12 +88,10 @@ const Index = () => {
                 Comprehensive publishing services to transform your manuscript into a professionally published book.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {services.map((service, index) => (
-                  <div key={index} className="flex items-center space-x-3">
+                {services.map((service, index) => <div key={index} className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
                     <span className="text-gray-700">{service}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               <Button asChild className="mt-8 bg-blue-600 hover:bg-blue-700">
                 <Link to="/services">
@@ -157,8 +137,6 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
