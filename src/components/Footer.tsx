@@ -6,7 +6,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <BookOpen className="h-8 w-8 text-blue-400" />
+              <img src="/lovable-uploads/a77f0675-d2fd-48c8-86e1-087d3a8163d4.png" alt="Gyaneshwari Prakashan" className="h-8 w-8" />
               <div className="flex flex-col">
                 <span className="text-xl font-bold">Gyaneshwari</span>
                 <span className="text-sm text-blue-400 -mt-1">Prakashan</span>
