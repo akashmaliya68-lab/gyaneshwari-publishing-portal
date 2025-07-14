@@ -28,7 +28,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Welcome to <span className="text-blue-400">Gyaneshwari Prakashan</span>
+              Welcome to <span className="text-[#74b0fa]">Gyaneshwari Prakashan</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
               Your trusted partner in bringing your literary dreams to life. Professional book publication services with end-to-end support.
