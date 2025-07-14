@@ -58,7 +58,7 @@ const Contact = () => {
     {
       icon: <MapPin className="h-6 w-6 text-blue-600" />,
       title: "Office",
-      details: "Your City, State",
+      details: "433/1 North Civil Line Muzaffarnagar",
       subtitle: "Visit us for personal consultation"
     },
     {
