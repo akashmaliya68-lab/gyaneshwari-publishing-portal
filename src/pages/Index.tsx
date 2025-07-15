@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { BookOpen, Users, Award, Star, ArrowRight, CheckCircle } from "lucide-react";
+import { BookOpen, Users, Award, Star, ArrowRight, CheckCircle, Quote } from "lucide-react";
 const Index = () => {
   const features = [{
     icon: <BookOpen className="h-12 w-12 text-blue-600" />,
@@ -19,6 +19,27 @@ const Index = () => {
     description: "We maintain strict quality control throughout the entire publication process."
   }];
   const services = ["ISBN Allotment", "Manuscripting", "Professional Editing", "Book Formatting", "Cover Designing", "Amazon Listing"];
+  
+  const testimonials = [
+    {
+      quote: "Gyaneshwari Prakashan transformed my manuscript into a beautiful published book. Their attention to detail and professional service exceeded my expectations.",
+      author: "Dr. Priya Sharma",
+      role: "Academic Author",
+      rating: 5
+    },
+    {
+      quote: "The team guided me through every step of the publishing process. From editing to Amazon listing, everything was handled professionally.",
+      author: "Rajesh Kumar",
+      role: "First-time Author",
+      rating: 5
+    },
+    {
+      quote: "Excellent formatting and cover design services. My poetry collection looks absolutely stunning thanks to their creative team.",
+      author: "Meera Agarwal",
+      role: "Poet & Writer",
+      rating: 5
+    }
+  ];
   return <div className="min-h-screen bg-white">
       <Header />
       
@@ -116,6 +137,60 @@ const Index = () => {
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              What Our Authors Say
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Join hundreds of satisfied authors who have successfully brought their literary dreams to life with us
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="flex justify-center mb-6">
+                    <Quote className="h-8 w-8 text-muted-foreground" />
+                  </div>
+                  
+                  <blockquote className="text-foreground text-lg leading-relaxed mb-6 italic">
+                    "{testimonial.quote}"
+                  </blockquote>
+                  
+                  <div className="flex justify-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
+                      <span className="text-primary font-semibold text-lg">
+                        {testimonial.author.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <h4 className="font-semibold text-foreground text-lg">{testimonial.author}</h4>
+                    <p className="text-muted-foreground text-sm">{testimonial.role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg" className="bg-card hover:bg-accent">
+              <Link to="/contact">
+                Read More Reviews
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
