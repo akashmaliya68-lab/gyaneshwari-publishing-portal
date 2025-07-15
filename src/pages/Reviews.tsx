@@ -1,11 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { Star, Quote, Award, BookOpen } from "lucide-react";
+import { Star, Quote, Award, BookOpen, Send } from "lucide-react";
+import { useState } from "react";
 
 const Reviews = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    bookTitle: '',
+    rating: 5,
+    feedback: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here - could integrate with backend
+    console.log('Review submitted:', formData);
+    // Reset form
+    setFormData({ name: '', bookTitle: '', rating: 5, feedback: '' });
+    // Show success message (could use toast)
+    alert('Thank you for your review! We appreciate your feedback.');
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const reviews = [
     {
       quote: "Gyaneshwari Prakashan transformed my manuscript into a beautiful published book. Their attention to detail and professional service exceeded my expectations.",
@@ -214,6 +242,117 @@ const Reviews = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Submit Review Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Share Your Experience
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Have you published with us? We'd love to hear about your experience! 
+              Your review helps other authors discover our services.
+            </p>
+          </div>
+          
+          <Card className="bg-card border-border shadow-lg">
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-sm font-medium text-foreground">
+                      Your Name *
+                    </Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Enter your full name"
+                      className="bg-background border-input"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="bookTitle" className="text-sm font-medium text-foreground">
+                      Book Title *
+                    </Label>
+                    <Input
+                      id="bookTitle"
+                      name="bookTitle"
+                      type="text"
+                      value={formData.bookTitle}
+                      onChange={handleInputChange}
+                      placeholder="Enter your book title"
+                      className="bg-background border-input"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium text-foreground">
+                    Rating *
+                  </Label>
+                  <div className="flex items-center space-x-2">
+                    {[1, 2, 3, 4, 5].map((rating) => (
+                      <button
+                        key={rating}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, rating })}
+                        className="focus:outline-none transition-colors"
+                      >
+                        <Star
+                          className={`h-6 w-6 ${
+                            rating <= formData.rating
+                              ? 'text-yellow-400 fill-current'
+                              : 'text-muted-foreground'
+                          }`}
+                        />
+                      </button>
+                    ))}
+                    <span className="text-sm text-muted-foreground ml-2">
+                      ({formData.rating} star{formData.rating !== 1 ? 's' : ''})
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="feedback" className="text-sm font-medium text-foreground">
+                    Your Review *
+                  </Label>
+                  <Textarea
+                    id="feedback"
+                    name="feedback"
+                    value={formData.feedback}
+                    onChange={handleInputChange}
+                    placeholder="Share your experience with our publishing services..."
+                    className="bg-background border-input min-h-[120px] resize-none"
+                    required
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Tell us about your publishing journey, the quality of services, and what you loved most about working with us.
+                  </p>
+                </div>
+                
+                <div className="flex justify-center pt-4">
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+                  >
+                    <Send className="h-4 w-4 mr-2" />
+                    Submit Review
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
