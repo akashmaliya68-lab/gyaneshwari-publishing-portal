@@ -141,59 +141,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              What Our Authors Say
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join hundreds of satisfied authors who have successfully brought their literary dreams to life with us
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="flex justify-center mb-6">
-                    <Quote className="h-8 w-8 text-muted-foreground" />
-                  </div>
-                  
-                  <blockquote className="text-foreground text-lg leading-relaxed mb-6 italic">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  
-                  <div className="flex justify-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-primary font-semibold text-lg">
-                        {testimonial.author.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                    <h4 className="font-semibold text-foreground text-lg">{testimonial.author}</h4>
-                    <p className="text-muted-foreground text-sm">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg" className="bg-card hover:bg-accent">
-              <Link to="/contact">
-                Read More Reviews
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-blue-600">
