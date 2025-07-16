@@ -142,6 +142,31 @@ const Index = () => {
       </section>
 
 
+      {/* Published Books Section */}
+      <section className="py-20 bg-gradient-to-br from-indigo-900 to-purple-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Check Our Published Books
+          </h2>
+          <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+            Browse our collection of successfully published books and discover popular titles, best offers, and top discounted products.
+          </p>
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-white text-indigo-900 hover:bg-gray-100"
+          >
+            <a 
+              href="https://www.amazon.in/l/27943762031?me=A10S9ZURCWTMLL&tag=ShopReferral_04da8095-74a0-4986-a153-51b372c0c040&ref=sf_seller_app_share_new_ls_srb" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Visit Our Amazon Storefront <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+          </Button>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
