@@ -36,74 +36,114 @@ const Reviews = () => {
 
   const reviews = [
     {
-      quote: "Gyaneshwari Prakashan transformed my manuscript into a beautiful published book. Their attention to detail and professional service exceeded my expectations.",
-      author: "Dr. Priya Sharma",
-      role: "Academic Author",
-      book: "Research Methodologies in Modern Science",
-      rating: 5,
-      featured: true
-    },
-    {
-      quote: "The team guided me through every step of the publishing process. From editing to Amazon listing, everything was handled professionally.",
-      author: "Rajesh Kumar",
-      role: "First-time Author",
-      book: "Journey Through the Himalayas",
-      rating: 5,
-      featured: true
-    },
-    {
-      quote: "Excellent formatting and cover design services. My poetry collection looks absolutely stunning thanks to their creative team.",
-      author: "Meera Agarwal",
+      quote: "Working with Gyaneshwari Prakashan was a dream come true. They brought my poetry to life with beautiful formatting and professional editing.",
+      author: "Sonika Sharma",
       role: "Poet & Writer",
-      book: "Whispers of the Heart",
+      book: "Wakt ka Daur",
       rating: 5,
       featured: true
     },
     {
-      quote: "Professional editing services helped refine my novel. The editors understood my vision and enhanced it beautifully.",
-      author: "Arjun Patel",
+      quote: "The team understood my vision perfectly and helped me create a compelling narrative. Excellent support throughout the publishing journey.",
+      author: "Kavya",
       role: "Fiction Writer",
-      book: "Shadows of Tomorrow",
+      book: "The Decree",
+      rating: 5,
+      featured: true
+    },
+    {
+      quote: "From manuscript to published book, every step was handled with care and professionalism. Highly recommended for all authors.",
+      author: "Ramchander Jhatwal",
+      role: "Literary Author",
+      book: "Veera ki Ardaas",
+      rating: 5,
+      featured: true
+    },
+    {
+      quote: "Outstanding editing and publishing services. My poetry collection received the attention it deserved thanks to their expert team.",
+      author: "Dr. Vinay Kumar Srivastava",
+      role: "Academic & Poet",
+      book: "Nav Kaavy Prasoon",
       rating: 5,
       featured: false
     },
     {
-      quote: "Fast turnaround time and excellent customer support. They made the publishing process smooth and stress-free.",
-      author: "Sunita Devi",
-      role: "Self-Help Author",
-      book: "Finding Inner Peace",
+      quote: "The publishing process was seamless and efficient. They helped transform my ideas into a professionally bound book.",
+      author: "Krishiv Mahajan",
+      role: "Motivational Author",
+      book: "Rise Without End",
       rating: 5,
       featured: false
     },
     {
-      quote: "The ISBN registration and Amazon listing services saved me so much time. Highly recommend their complete package.",
-      author: "Vikram Singh",
-      role: "Business Author",
-      book: "Leadership in the Digital Age",
+      quote: "Exceptional quality and attention to detail. The team made my philosophical thoughts accessible to readers through excellent formatting.",
+      author: "Priti Motilal Sukheja",
+      role: "Philosopher & Writer",
+      book: "Though on everything",
       rating: 5,
       featured: false
     },
     {
-      quote: "Their cover design team created something beyond my imagination. The book cover perfectly captures the essence of my story.",
-      author: "Kavya Sharma",
-      role: "Romance Novelist",
-      book: "Love in the Time of Monsoons",
+      quote: "Beautiful cover design and professional layout. My nature-themed book looks exactly as I envisioned it would.",
+      author: "Priya Shrivastav",
+      role: "Nature Writer",
+      book: "Ek safar purana aur kudrat",
       rating: 5,
       featured: false
     },
     {
-      quote: "Affordable pricing without compromising on quality. Best decision I made for my publishing journey.",
-      author: "Dr. Ramesh Gupta",
-      role: "Medical Writer",
-      book: "Modern Healthcare Practices",
+      quote: "Their understanding of emotional writing is remarkable. They helped enhance the depth of my work while maintaining authenticity.",
+      author: "Sonika Sharma",
+      role: "Psychology Writer",
+      book: "Emotional Empathy",
       rating: 5,
       featured: false
     },
     {
-      quote: "The team's dedication to quality and timely delivery is commendable. They truly care about authors' success.",
-      author: "Anita Verma",
-      role: "Children's Author",
-      book: "Adventures in Dreamland",
+      quote: "Professional editing and thoughtful suggestions improved my manuscript significantly. Grateful for their literary expertise.",
+      author: "Ramchander Jhatwal",
+      role: "Cultural Writer",
+      book: "Kaumaaryavatee",
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "The team helped me express my inner voice through proper structuring and beautiful presentation. Truly satisfied with the outcome.",
+      author: "Amit Meghnad",
+      role: "Spiritual Writer",
+      book: "Antaratma ki Awaj",
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "They transformed my scattered thoughts and dreams into a coherent, beautiful book. The editing process was enlightening.",
+      author: "Mita Das",
+      role: "Creative Writer",
+      book: "Scribblings of dreamer",
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "Exceptional care in handling spiritual content. The team respected the sanctity of the subject while enhancing readability.",
+      author: "Kamla Shastry",
+      role: "Spiritual Author",
+      book: "Amazing Grace",
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "Beautiful typography and layout for my poetry collection. They understood the emotional depth and presented it perfectly.",
+      author: "Manisha Kumari",
+      role: "Poet",
+      book: "Ashk Ae Ishq",
+      rating: 5,
+      featured: false
+    },
+    {
+      quote: "The team's sensitivity to poetic expression is commendable. They preserved the essence while improving the presentation.",
+      author: "Amit Meghnad",
+      role: "Poet & Writer",
+      book: "Aah se apjate shabd",
       rating: 5,
       featured: false
     }
