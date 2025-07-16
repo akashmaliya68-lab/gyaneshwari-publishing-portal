@@ -291,32 +291,6 @@ const Packages = () => {
         </div>
       </section>
 
-      {/* Check Our Published Books Section */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Check Our Published Books
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Browse through our collection of successfully published books. See the quality and variety of work we've helped authors achieve.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700">
-              <a 
-                href="https://www.amazon.in/l/27943762031?me=A10S9ZURCWTMLL&tag=ShopReferral_04da8095-74a0-4986-a153-51b372c0c040&ref=sf_seller_app_share_new_ls_srb" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                Visit Our Amazon Storefront
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/reviews">Read Author Reviews</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
