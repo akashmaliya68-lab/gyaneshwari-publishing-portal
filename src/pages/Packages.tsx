@@ -8,6 +8,12 @@ import { Link } from "react-router-dom";
 import { CheckCircle, Star, Crown, Gem, GraduationCap } from "lucide-react";
 
 const Packages = () => {
+  const handleWhatsAppContact = (packageName: string, price: string) => {
+    const message = `Hi! I'm interested in the ${packageName} (${price}) for publishing my book. Could you please provide more details about the process and next steps?`;
+    const whatsappUrl = `https://wa.me/+919876543210?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const packages = [
     {
       name: "Student Package",
@@ -150,14 +156,14 @@ const Packages = () => {
                   </ul>
                   
                   <Button 
-                    asChild 
+                    onClick={() => handleWhatsAppContact(pkg.name, pkg.price)}
                     className={`w-full ${
                       pkg.highlighted 
                         ? 'bg-blue-600 hover:bg-blue-700' 
                         : 'bg-gray-900 hover:bg-gray-800'
                     }`}
                   >
-                    <Link to="/contact">Choose This Package</Link>
+                    Choose This Package
                   </Button>
                 </CardContent>
               </Card>
