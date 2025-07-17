@@ -42,6 +42,12 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleWhatsAppClick = () => {
+    const message = "Hi! I'm interested in publishing my book. Could you please provide more information about your services?";
+    const whatsappUrl = `https://wa.me/+919119743698?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-blue-600" />,
@@ -54,6 +60,13 @@ const Contact = () => {
       title: "Phone",
       details: "+91 9119743698",
       subtitle: "Mon-Fri 9:00 AM - 6:00 PM"
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6 text-green-600" />,
+      title: "WhatsApp",
+      details: "+91 9119743698",
+      subtitle: "Chat with us instantly",
+      isWhatsApp: true
     },
     {
       icon: <MapPin className="h-6 w-6 text-blue-600" />,
@@ -92,7 +105,13 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card 
+                key={index} 
+                className={`text-center p-6 hover:shadow-lg transition-all duration-300 ${
+                  info.isWhatsApp ? 'cursor-pointer hover:scale-105 bg-green-50' : ''
+                }`}
+                onClick={info.isWhatsApp ? handleWhatsAppClick : undefined}
+              >
                 <CardContent className="pt-6">
                   <div className="flex justify-center mb-4">
                     {info.icon}
@@ -106,6 +125,11 @@ const Contact = () => {
                   <p className="text-sm text-gray-500">
                     {info.subtitle}
                   </p>
+                  {info.isWhatsApp && (
+                    <p className="text-xs text-green-600 mt-2 font-medium">
+                      Click to chat
+                    </p>
+                  )}
                 </CardContent>
               </Card>
             ))}
