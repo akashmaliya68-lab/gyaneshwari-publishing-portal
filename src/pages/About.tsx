@@ -31,8 +31,8 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "450+", label: "Books Published" },
-    { number: "300+", label: "Happy Authors" },
+    { number: "500+", label: "Books Published" },
+    { number: "450+", label: "Happy Authors" },
     { number: "5+", label: "Years Experience" },
     { number: "24/7", label: "Support Available" }
   ];
