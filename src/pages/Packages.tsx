@@ -10,7 +10,7 @@ import { CheckCircle, Star, Crown, Gem, GraduationCap } from "lucide-react";
 const Packages = () => {
   const handleWhatsAppContact = (packageName: string, price: string) => {
     const message = `Hi! I'm interested in the ${packageName} (${price}) for publishing my book. Could you please provide more details about the process and next steps?`;
-    const whatsappUrl = `https://wa.me/+919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+919119743698?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
