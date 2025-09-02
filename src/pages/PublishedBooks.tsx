@@ -9,7 +9,6 @@ import { useToast } from "@/hooks/use-toast";
 import { MessageCircle, ShoppingCart, Star, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 interface Book {
   id: number;
   title: string;
@@ -20,7 +19,6 @@ interface Book {
   rating?: number;
   reviews?: number;
 }
-
 interface OrderForm {
   name: string;
   email: string;
@@ -29,9 +27,10 @@ interface OrderForm {
   quantity: number;
   bookId: number;
 }
-
 const PublishedBooks = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [isOrderDialogOpen, setIsOrderDialogOpen] = useState(false);
   const [orderForm, setOrderForm] = useState<OrderForm>({
@@ -44,39 +43,34 @@ const PublishedBooks = () => {
   });
 
   // Sample books data - you can easily update this array to add more books
-  const books: Book[] = [
-    {
-      id: 1,
-      title: "The Journey Within",
-      author: "Dr. Rajesh Kumar",
-      description: "A profound exploration of self-discovery and personal growth through ancient wisdom and modern psychology.",
-      price: "₹299",
-      coverImage: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop",
-      rating: 4.8,
-      reviews: 156
-    },
-    {
-      id: 2,
-      title: "Vedic Mathematics Simplified",
-      author: "Prof. Anita Sharma",
-      description: "Master the ancient Indian system of mathematics with easy-to-follow techniques and practical examples.",
-      price: "₹399",
-      coverImage: "https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=400&h=600&fit=crop",
-      rating: 4.9,
-      reviews: 203
-    },
-    {
-      id: 3,
-      title: "Stories of Wisdom",
-      author: "Meera Patel",
-      description: "A collection of inspiring tales that teach valuable life lessons through engaging narratives.",
-      price: "₹249",
-      coverImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop",
-      rating: 4.7,
-      reviews: 89
-    }
-  ];
-
+  const books: Book[] = [{
+    id: 1,
+    title: "The Journey Within",
+    author: "Dr. Rajesh Kumar",
+    description: "A profound exploration of self-discovery and personal growth through ancient wisdom and modern psychology.",
+    price: "₹299",
+    coverImage: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop",
+    rating: 4.8,
+    reviews: 156
+  }, {
+    id: 2,
+    title: "Vedic Mathematics Simplified",
+    author: "Prof. Anita Sharma",
+    description: "Master the ancient Indian system of mathematics with easy-to-follow techniques and practical examples.",
+    price: "₹399",
+    coverImage: "https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=400&h=600&fit=crop",
+    rating: 4.9,
+    reviews: 203
+  }, {
+    id: 3,
+    title: "Stories of Wisdom",
+    author: "Meera Patel",
+    description: "A collection of inspiring tales that teach valuable life lessons through engaging narratives.",
+    price: "₹249",
+    coverImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop",
+    rating: 4.7,
+    reviews: 89
+  }];
   const whatsappNumber = "919876543210"; // Replace with your actual WhatsApp number
 
   const handleWhatsAppOrder = (book: Book) => {
@@ -84,16 +78,16 @@ const PublishedBooks = () => {
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
-
   const handleFormOrder = (book: Book) => {
     setSelectedBook(book);
-    setOrderForm(prev => ({ ...prev, bookId: book.id }));
+    setOrderForm(prev => ({
+      ...prev,
+      bookId: book.id
+    }));
     setIsOrderDialogOpen(true);
   };
-
   const handleSubmitOrder = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!selectedBook) return;
 
     // Create WhatsApp message with order details
@@ -112,7 +106,6 @@ Address: ${orderForm.address}
 
 Total: ₹${parseInt(selectedBook.price.replace('₹', '')) * orderForm.quantity}
     `.trim();
-
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(orderDetails)}`;
     window.open(whatsappUrl, '_blank');
 
@@ -126,19 +119,18 @@ Total: ₹${parseInt(selectedBook.price.replace('₹', '')) * orderForm.quantity
       bookId: 0
     });
     setIsOrderDialogOpen(false);
-    
     toast({
       title: "Order Submitted!",
-      description: "Your order details have been sent via WhatsApp. We'll contact you soon!",
+      description: "Your order details have been sent via WhatsApp. We'll contact you soon!"
     });
   };
-
   const handleInputChange = (field: keyof OrderForm, value: string | number) => {
-    setOrderForm(prev => ({ ...prev, [field]: value }));
+    setOrderForm(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -156,20 +148,13 @@ Total: ₹${parseInt(selectedBook.price.replace('₹', '')) * orderForm.quantity
 
         {/* Books Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {books.map((book) => (
-            <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          {books.map(book => <Card key={book.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="relative">
-                <img
-                  src={book.coverImage}
-                  alt={`${book.title} cover`}
-                  className="w-full h-64 object-cover"
-                />
-                {book.rating && (
-                  <div className="absolute top-4 right-4 bg-background/90 rounded-full px-2 py-1 flex items-center">
+                <img src={book.coverImage} alt={`${book.title} cover`} className="w-full h-64 object-cover" />
+                {book.rating && <div className="absolute top-4 right-4 bg-background/90 rounded-full px-2 py-1 flex items-center">
                     <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
                     <span className="text-sm font-medium">{book.rating}</span>
-                  </div>
-                )}
+                  </div>}
               </div>
               
               <CardHeader>
@@ -183,35 +168,23 @@ Total: ₹${parseInt(selectedBook.price.replace('₹', '')) * orderForm.quantity
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-primary">{book.price}</span>
-                  {book.reviews && (
-                    <span className="text-sm text-muted-foreground">
+                  {book.reviews && <span className="text-sm text-muted-foreground">
                       {book.reviews} reviews
-                    </span>
-                  )}
+                    </span>}
                 </div>
               </CardContent>
               
               <CardFooter className="flex gap-2">
-                <Button
-                  onClick={() => handleFormOrder(book)}
-                  className="flex-1"
-                  size="sm"
-                >
+                <Button onClick={() => handleFormOrder(book)} className="flex-1" size="sm">
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   Order Form
                 </Button>
-                <Button
-                  onClick={() => handleWhatsAppOrder(book)}
-                  variant="outline"
-                  className="flex-1"
-                  size="sm"
-                >
+                <Button onClick={() => handleWhatsAppOrder(book)} variant="outline" className="flex-1" size="sm">
                   <MessageCircle className="h-4 w-4 mr-2" />
                   WhatsApp
                 </Button>
               </CardFooter>
-            </Card>
-          ))}
+            </Card>)}
         </div>
 
         {/* Order Form Dialog */}
@@ -227,59 +200,27 @@ Total: ₹${parseInt(selectedBook.price.replace('₹', '')) * orderForm.quantity
             <form onSubmit={handleSubmitOrder} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input
-                  id="name"
-                  type="text"
-                  value={orderForm.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  required
-                />
+                <Input id="name" type="text" value={orderForm.name} onChange={e => handleInputChange('name', e.target.value)} required />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={orderForm.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  required
-                />
+                <Input id="email" type="email" value={orderForm.email} onChange={e => handleInputChange('email', e.target.value)} required />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={orderForm.phone}
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
-                  required
-                />
+                <Input id="phone" type="tel" value={orderForm.phone} onChange={e => handleInputChange('phone', e.target.value)} required />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="quantity">Quantity</Label>
-                <Input
-                  id="quantity"
-                  type="number"
-                  min="1"
-                  value={orderForm.quantity}
-                  onChange={(e) => handleInputChange('quantity', parseInt(e.target.value) || 1)}
-                  required
-                />
+                <Input id="quantity" type="number" min="1" value={orderForm.quantity} onChange={e => handleInputChange('quantity', parseInt(e.target.value) || 1)} required />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="address">Delivery Address</Label>
-                <Textarea
-                  id="address"
-                  value={orderForm.address}
-                  onChange={(e) => handleInputChange('address', e.target.value)}
-                  placeholder="Enter your complete address..."
-                  rows={3}
-                  required
-                />
+                <Textarea id="address" value={orderForm.address} onChange={e => handleInputChange('address', e.target.value)} placeholder="Enter your complete address..." rows={3} required />
               </div>
               
               <div className="flex gap-2 pt-4">
@@ -313,15 +254,11 @@ Total: ₹${parseInt(selectedBook.price.replace('₹', '')) * orderForm.quantity
               </div>
             </div>
           </div>
-          <p className="text-muted-foreground mt-6">
-            📞 WhatsApp: +91 98765 43210 | 📧 Email: orders@gyaneshwariprakashan.com
-          </p>
+          <p className="text-muted-foreground mt-6">📞 WhatsApp: +91 9119743698 | 📧 Email: orders@gyaneshwariprakashan1997@gmail.com</p>
         </div>
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default PublishedBooks;
